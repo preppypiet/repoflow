@@ -6,8 +6,7 @@ use PhpSpec\ObjectBehavior;
 use Pieterdev\RepoFlow\FluentRepositoryTrait;
 use Prophecy\Argument;
 
-class FluentRepositoryTraitSpec extends ObjectBehavior
-{
+class FluentRepositoryTraitSpec extends ObjectBehavior {
     protected $mockModel;
 
     function let(StubEloquentModel $mockModel)
@@ -53,14 +52,12 @@ class FluentRepositoryTraitSpec extends ObjectBehavior
     }
 }
 
-interface StubQueryBuilder
-{
+interface StubQueryBuilder {
     function where($name, $args);
     function get();
 }
 
-interface StubEloquentModel
-{
+interface StubEloquentModel {
     function whereName();
 
     function whereAge();
@@ -68,8 +65,7 @@ interface StubEloquentModel
     function newQuery();
 }
 
-class FluentTraitTest
-{
+class FluentTraitTest {
     use \Pieterdev\RepoFlow\FluentRepositoryTrait;
 
     protected static $filters = [
@@ -83,6 +79,4 @@ class FluentTraitTest
     {
         $this->model = $model;
     }
-
-
 }

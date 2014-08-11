@@ -2,17 +2,24 @@
 
 namespace Pieterdev\RepoFlow;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-
-trait FluentRepositoryTrait
-{
+trait FluentRepositoryTrait {
+    /**
+     * @var array
+     */
     public $activeFilters = [];
 
+    /**
+     * @return null
+     */
     function availableFilters()
     {
         return $this->getFilters();
     }
 
+    /**
+     * @return mixed
+     * @throws FiltersNotFoundException
+     */
     protected function getFilters()
     {
         $foundFilters = null;
@@ -26,15 +33,24 @@ trait FluentRepositoryTrait
         return $foundFilters;
     }
 
+    /**
+     * Gets the Eloquent model
+     * @throws ModelPropertyNotFoundException
+     * @return mixed
+     */
     protected function getModel()
     {
         if(property_exists($this, 'model')) {
             return $this->model;
         } else {
-            throw new ModelNotFoundException('Could not find the $model property. Please create it in order to use the fluent query api.');
+            throw new ModelPropertyNotFoundException('Could not find the $model property. Please create it in order to use the fluent query api.');
         }
     }
 
+    /**
+     * Executes the query with the stored active filters.
+     * @return mixed
+     */
     public function all()
     {
         $builder = $this->getModel()->newQuery();
