@@ -1,0 +1,4 @@
+suites:
+  repoflow:
+    namespace: Pieterdev\RepoFlow
+    src_path: src

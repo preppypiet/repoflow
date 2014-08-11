@@ -1,0 +1,24 @@
+{
+    "name": "pieterdev/repoflow",
+    "description": "A simple trait to allow fluently querying repositories with an eloquent model. Gives back the flexibility\
+                    of eloquent to some extent, while remaining explicit on which methods are supported by a repository.",
+    "authors": [
+        {
+            "name": "Pieter Botha",
+            "email": "pietboth@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pieterdev\\RepoFlow\\": "src/Pieterdev/RepoFlow"
+        }
+    },
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*"
+    }
+}
