@@ -53,7 +53,7 @@ trait FluentRepositoryTrait
 
     function __call($name, $args)
     {
-        if(!starts_with($name, 'where')) return;
+        if(strpos($name, 'where') !== 0) return;
 
         // see if our filters contains name
         // for example: 'whereAge' -> 'age'
