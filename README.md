@@ -25,7 +25,7 @@ class SomeEloquentRepository implements ISomeRepository {
         'score'
     ];
 
-    protected User $model;
+    protected $model;
 
     function __construct(User $userModel) 
     {
